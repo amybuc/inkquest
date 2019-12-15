@@ -149,6 +149,7 @@ public class WorldStateMachine : MonoBehaviour {
     public void RefreshNewTownInventories()
     {
         Debug.Log("L O G :: RefreshNewTownInventories Run");
+        Debug.Log("SANITY CHECK - verify all towns for states returns " + verifyTownsHaveStates());
         //Refresh all town inventories based on each town's active condition!
 
         GameObject[] allTowns = GameObject.FindGameObjectsWithTag("TOWN");
@@ -342,6 +343,23 @@ public class WorldStateMachine : MonoBehaviour {
         }
 		Debug.Log("WSM :: FindStateByName :: Couldn't find state in database :c");
 		return null;
+
+    }
+
+    public bool verifyTownsHaveStates()
+    {
+        //This is mainly for debugging - returns true if all towns in game have been assigned a state correctly
+        GameObject[] allTowns = GameObject.FindGameObjectsWithTag("TOWN");
+
+        foreach (GameObject _town in allTowns)
+        {
+            if (_town.GetComponent<Town>().activeState[0].stateName == null)
+            {
+                Debug.Log("verifyTownsHaveStates has failed - " + _town.GetComponent<Town>().townName + " has no state assigned");
+                return false;
+            }
+        }
+        return true;
 
     }
 

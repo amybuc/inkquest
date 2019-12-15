@@ -98,22 +98,33 @@ public class DialogueStringDatabase : MonoBehaviour {
 		}
 
 		//second part - status specific
-		if (town.activeState[0].stateName == "pacifist")
-		{
-			partb = pacifistTownStatusStrings[Random.Range(0, pacifistTownStatusStrings.Count - 1)];
-		}
-		else if (town.activeState[0].stateName == "famine")
-		{
-			partb = famineTownStatusStrings[Random.Range(0, famineTownStatusStrings.Count - 1)];
-		}
-		else if (town.activeState[0].stateName == "bounty crop")
-		{
-			partb = bountyCropTownStatusStrings[Random.Range(0, bountyCropTownStatusStrings.Count - 1)];
-		}
-		else if (town.activeState[0].stateName == "at war")
-		{
-			partb = atWarTownStatusStrings[Random.Range(0, atWarTownStatusStrings.Count - 1)];
-		}
+        //First, check that there is actually an active state on this town
+
+        if (town.activeState[0].stateName != null)
+        {
+            if (town.activeState[0].stateName == "pacifist")
+            {
+                partb = pacifistTownStatusStrings[Random.Range(0, pacifistTownStatusStrings.Count - 1)];
+            }
+            else if (town.activeState[0].stateName == "famine")
+            {
+                partb = famineTownStatusStrings[Random.Range(0, famineTownStatusStrings.Count - 1)];
+            }
+            else if (town.activeState[0].stateName == "bounty crop")
+            {
+                partb = bountyCropTownStatusStrings[Random.Range(0, bountyCropTownStatusStrings.Count - 1)];
+            }
+            else if (town.activeState[0].stateName == "at war")
+            {
+                partb = atWarTownStatusStrings[Random.Range(0, atWarTownStatusStrings.Count - 1)];
+            }
+        }
+        else
+        {
+            Debug.Log("There's no active state on " + town.townName);
+        }
+
+		
 
 		//third part - relationship specific
 		if (town.relationship >= 0 && town.relationship <= 35)
@@ -136,7 +147,7 @@ public class DialogueStringDatabase : MonoBehaviour {
 		}
 		else
 		{
-			Debug.Log("Generate town status = Something went wrong - debugging time!");
+			Debug.Log("Generate town status = Something was null when composing town status message - debugging time!");
 			return null;
 		}
 

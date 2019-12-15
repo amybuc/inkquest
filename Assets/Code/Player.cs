@@ -125,8 +125,16 @@ public class Player : MonoBehaviour {
                     interactable.GetComponent<Town>().openTownMenu();
                     interactable.GetComponent<Town>().setUpTownUIButtons();
                     mainCanvas.SetActive(false);
-					Debug.Log("INTERACTABLE :: The town name is " + interactable.GetComponent<Town>().townName);
-					Debug.Log("The active state on this town is " + interactable.GetComponent<Town>().activeState[0].stateName);
+
+                    if (interactable.GetComponent<Town>().activeState[0].stateName == null)
+                    {
+                        Debug.Log("Player :: The town " + interactable.GetComponent<Town>().townName + " does not have an active state");
+                    }
+                    else
+                    {
+                        Debug.Log("The active state on" + interactable.GetComponent<Town>().townName + " has an active state of " + interactable.GetComponent<Town>().activeState[0].stateName);
+                    }
+
                 }
             }
         }
