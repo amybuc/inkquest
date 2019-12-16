@@ -111,13 +111,16 @@ public class Player : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.E))
         {
+			Debug.Log("E Pressed!");
 
-            if (interactableInRange == true)
+			if (interactableInRange == true)
             {
+				Debug.Log("Something interactable is nearby");
 
-                if (interactable.tag == "NPC")
+				if (interactable.tag == "NPC")
                 {
-                    GameObject.Find("GameController").GetComponent<Dialogue>().Speak(interactable.gameObject);
+					Debug.Log("Interacting with NPC!");
+					GameObject.Find("GameController").GetComponent<Dialogue>().Speak(interactable.gameObject);
                     mainCanvas.SetActive(false);
                 }
                 if (interactable.tag == "TOWN")
@@ -164,10 +167,12 @@ public class Player : MonoBehaviour {
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
+		Debug.Log("Detecting Collision");
 
         if (collision.gameObject.tag == "NPC")
         {
-            interactableInRange = true;
+			Debug.Log("Detecting Collision with NPC");
+			interactableInRange = true;
             interactable = collision.gameObject;
         }
         if (collision.gameObject.tag == "TOWN")
