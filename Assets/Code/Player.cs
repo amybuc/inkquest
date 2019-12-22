@@ -111,15 +111,11 @@ public class Player : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-			Debug.Log("E Pressed!");
 
 			if (interactableInRange == true)
             {
-				Debug.Log("Something interactable is nearby");
-
 				if (interactable.tag == "NPC")
                 {
-					Debug.Log("Interacting with NPC!");
 					GameObject.Find("GameController").GetComponent<Dialogue>().Speak(interactable.gameObject);
                     mainCanvas.SetActive(false);
                 }
@@ -129,6 +125,8 @@ public class Player : MonoBehaviour {
                     interactable.GetComponent<Town>().setUpTownUIButtons();
                     mainCanvas.SetActive(false);
 
+					/*
+
                     if (interactable.GetComponent<Town>().activeState[0].stateName == null)
                     {
                         Debug.Log("Player :: The town " + interactable.GetComponent<Town>().townName + " does not have an active state");
@@ -137,6 +135,8 @@ public class Player : MonoBehaviour {
                     {
                         Debug.Log("The active state on" + interactable.GetComponent<Town>().townName + " has an active state of " + interactable.GetComponent<Town>().activeState[0].stateName);
                     }
+
+					*/
 
                 }
             }
@@ -167,11 +167,9 @@ public class Player : MonoBehaviour {
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-		Debug.Log("Detecting Collision");
 
         if (collision.gameObject.tag == "NPC")
         {
-			Debug.Log("Detecting Collision with NPC");
 			interactableInRange = true;
             interactable = collision.gameObject;
         }

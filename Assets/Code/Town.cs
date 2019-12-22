@@ -274,6 +274,7 @@ public class Town : MonoBehaviour {
 
 	public void buyItem(string itemID)
 	{
+		Debug.Log("The item should be being removed from the town's inventory!");
 		removeItemFromTownInventory(itemID);
 		clearTownInventory();
 		PopulateTownInventory();

@@ -102,6 +102,10 @@ public class DialogueStringDatabase : MonoBehaviour {
 
         if (town.activeState[0].stateName != null)
         {
+			if (town.activeState[0].stateName == "normal")
+			{
+				partb = noneTownStatusStrings[Random.Range(0, noneTownStatusStrings.Count - 1)];
+			}
             if (town.activeState[0].stateName == "pacifist")
             {
                 partb = pacifistTownStatusStrings[Random.Range(0, pacifistTownStatusStrings.Count - 1)];
