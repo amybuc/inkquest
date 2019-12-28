@@ -13,6 +13,7 @@ public class ItemDatabase : MonoBehaviour {
      *      material
      *      gem/jewellery
      *      magic
+     *      clothes
      * 
      *  Levels of Rarity
      *      common
@@ -220,7 +221,7 @@ public class ItemDatabase : MonoBehaviour {
         Potato.itemName = "Potato";
         Potato.itemDescription = "Boil em, mash em, stick em in a stew";
         Potato.basePrice = 6;
-        Potato.imageUrl = "ItemImages/item_healthpotion";
+        Potato.imageUrl = "ItemImages/item_potato";
         Potato.tag = "food";
         Potato.rarity = "common";
         Potato.quantity = 1;
@@ -366,6 +367,265 @@ public class ItemDatabase : MonoBehaviour {
         Wood.quantity = 1;
         database.Add(Wood);
 
+        Item Axe = new Item();
+        Axe.itemName = "Axe";
+        Axe.itemDescription = "The most versatile of tools - chop some wood, or the heads of your foes!";
+        Axe.basePrice = 40;
+        Axe.imageUrl = "ItemImages/item_axe";
+        Axe.tag = "weapon";
+        Axe.rarity = "uncommon";
+        Axe.quantity = 1;
+        database.Add(Axe);
+
+        Item ForestBerries = new Item();
+        ForestBerries.itemName = "Forest Berries";
+        ForestBerries.itemDescription = "Sweet and tasty - just be sure it's not nightshade!";
+        ForestBerries.basePrice = 10;
+        ForestBerries.imageUrl = "ItemImages/item_berries";
+        ForestBerries.tag = "food";
+        ForestBerries.rarity = "common";
+        ForestBerries.quantity = 1;
+        database.Add(ForestBerries);
+
+        Item ToughBoots = new Item();
+        ToughBoots.itemName = "Tough Boots";
+        ToughBoots.itemDescription = "These boots will endure any terrain, but damn are they uncomfy";
+        ToughBoots.basePrice = 50;
+        ToughBoots.imageUrl = "ItemImages/item_boots";
+        ToughBoots.tag = "clothes";
+        ToughBoots.rarity = "uncommon";
+        ToughBoots.quantity = 1;
+        database.Add(ToughBoots);
+
+        Item HuntingBow = new Item();
+        HuntingBow.itemName = "Hunting Bow";
+        HuntingBow.itemDescription = "Silent and deadly, your enemies/prey will never see you coming!";
+        HuntingBow.basePrice = 45;
+        HuntingBow.imageUrl = "ItemImages/item_bow";
+        HuntingBow.tag = "weapon";
+        HuntingBow.rarity = "uncommon";
+        HuntingBow.quantity = 1;
+        database.Add(HuntingBow);
+
+        Item Candle = new Item();
+        Candle.itemName = "Candle";
+        Candle.itemDescription = "Go on, touch the flame, I dare you";
+        Candle.basePrice = 10;
+        Candle.imageUrl = "ItemImages/item_candle";
+        Candle.tag = "object";
+        Candle.rarity = "common";
+        Candle.quantity = 1;
+        database.Add(Candle);
+
+        Item CookedSteak = new Item();
+        CookedSteak.itemName = "Cooked Steak";
+        CookedSteak.itemDescription = "Seared and smoked over an open flame, done medium-well";
+        CookedSteak.basePrice = 35;
+        CookedSteak.imageUrl = "ItemImages/item_cookedsteak";
+        CookedSteak.tag = "food";
+        CookedSteak.rarity = "uncommon";
+        CookedSteak.quantity = 1;
+        database.Add(CookedSteak);
+
+        Item CoastwatersCrab = new Item();
+        CoastwatersCrab.itemName = "Coastwaters Crab";
+        CoastwatersCrab.itemDescription = "Crab caught off the eastern coast, the meat is tender and delicious!";
+        CoastwatersCrab.basePrice = 30;
+        CoastwatersCrab.imageUrl = "ItemImages/item_crab";
+        CoastwatersCrab.tag = "food";
+        CoastwatersCrab.rarity = "common";
+        CoastwatersCrab.quantity = 1;
+        database.Add(CoastwatersCrab);
+
+        Item CoastwatersFish = new Item();
+        CoastwatersFish.itemName = "Coastwaters Fish";
+        CoastwatersFish.itemDescription = "A coastal delicacy, or a fun low-maintenance pet!";
+        CoastwatersFish.basePrice = 15;
+        CoastwatersFish.imageUrl = "ItemImages/item_fish";
+        CoastwatersFish.tag = "food";
+        CoastwatersFish.rarity = "common";
+        CoastwatersFish.quantity = 1;
+        database.Add(CoastwatersFish);
+
+        Item FishingRod = new Item();
+        FishingRod.itemName = "Fishing Rod";
+        FishingRod.itemDescription = "Give a man a fish, he eats for a day. Teach a man to fish, he dies of boredom";
+        FishingRod.basePrice = 20;
+        FishingRod.imageUrl = "ItemImages/item_fishingrod";
+        FishingRod.tag = "object";
+        FishingRod.rarity = "uncommon";
+        FishingRod.quantity = 1;
+        database.Add(FishingRod);
+
+        Item Hammer = new Item();
+        Hammer.itemName = "Hammer";
+        Hammer.itemDescription = "Sure, but it's pretty useless without the nails";
+        Hammer.basePrice = 25;
+        Hammer.imageUrl = "ItemImages/item_hammer";
+        Hammer.tag = "object";
+        Hammer.rarity = "uncommon";
+        Hammer.quantity = 1;
+        database.Add(Hammer);
+
+        Item WartimeFigurine = new Item();
+        WartimeFigurine.itemName = "Wartime Figurine";
+        WartimeFigurine.itemDescription = "It's a beautiful old statue commemorating some ancient war hero";
+        WartimeFigurine.basePrice = 70;
+        WartimeFigurine.imageUrl = "ItemImages/item_figurine";
+        WartimeFigurine.tag = "jewellery";
+        WartimeFigurine.rarity = "rare";
+        WartimeFigurine.quantity = 1;
+        database.Add(WartimeFigurine);
+
+        Item InkPot = new Item();
+        InkPot.itemName = "Inkpot";
+        InkPot.itemDescription = "The pen is mightier than the sword! Just a shame you only have the ink, I guess";
+        InkPot.basePrice = 12;
+        InkPot.imageUrl = "ItemImages/item_ink";
+        InkPot.tag = "object";
+        InkPot.rarity = "common";
+        InkPot.quantity = 1;
+        database.Add(InkPot);
+
+        Item JamJar = new Item();
+        JamJar.itemName = "Berry Jam";
+        JamJar.itemDescription = "Made of ripe forest berries and delicious on toast!";
+        JamJar.basePrice = 15;
+        JamJar.imageUrl = "ItemImages/item_jamjar";
+        JamJar.tag = "food";
+        JamJar.rarity = "common";
+        JamJar.quantity = 1;
+        database.Add(JamJar);
+
+        Item MagicMask = new Item();
+        MagicMask.itemName = "Mysterious Mask";
+        MagicMask.itemDescription = "A strange mask made of wood - I wonder where it came from?";
+        MagicMask.basePrice = 25;
+        MagicMask.imageUrl = "ItemImages/item_mask";
+        MagicMask.tag = "magic";
+        MagicMask.rarity = "rare";
+        MagicMask.quantity = 1;
+        database.Add(MagicMask);
+
+        Item Meat = new Item();
+        Meat.itemName = "Raw Meat";
+        Meat.itemDescription = "Fresh from the hunt! Ready for cooking, salting, or hey, eating raw, I don't judge";
+        Meat.basePrice = 17;
+        Meat.imageUrl = "ItemImages/item_meat";
+        Meat.tag = "food";
+        Meat.rarity = "common";
+        Meat.quantity = 1;
+        database.Add(Meat);
+
+        Item CoastwatersOctopus = new Item();
+        CoastwatersOctopus.itemName = "Coastwaters Octopus";
+        CoastwatersOctopus.itemDescription = "A coastal rarity! Only few can say they've tried this delicious treat";
+        CoastwatersOctopus.basePrice = 40;
+        CoastwatersOctopus.imageUrl = "ItemImages/item_octopus";
+        CoastwatersOctopus.tag = "food";
+        CoastwatersOctopus.rarity = "rare";
+        CoastwatersOctopus.quantity = 1;
+        database.Add(CoastwatersOctopus);
+
+        Item Pear = new Item();
+        Pear.itemName = "Pear";
+        Pear.itemDescription = "Tasty and sweet, this is a staple of the forest";
+        Pear.basePrice = 5;
+        Pear.imageUrl = "ItemImages/item_pear";
+        Pear.tag = "food";
+        Pear.rarity = "common";
+        Pear.quantity = 1;
+        database.Add(Pear);
+
+        Item IronMace = new Item();
+        IronMace.itemName = "Iron Mace";
+        IronMace.itemDescription = "Spikey and solid, this weapon packs a real brutal punch";
+        IronMace.basePrice = 50;
+        IronMace.imageUrl = "ItemImages/item_mace";
+        IronMace.tag = "weapon";
+        IronMace.rarity = "uncommon";
+        IronMace.quantity = 1;
+        database.Add(IronMace);
+
+        Item Poison = new Item();
+        Poison.itemName = "Poison Vial";
+        Poison.itemDescription = "The subtlest of weapons";
+        Poison.basePrice = 60;
+        Poison.imageUrl = "ItemImages/item_poison";
+        Poison.tag = "weapon";
+        Poison.rarity = "uncommon";
+        Poison.quantity = 1;
+        database.Add(Poison);
+
+        Item PricklyPear = new Item();
+        PricklyPear.itemName = "Prickly Pear";
+        PricklyPear.itemDescription = "Just as sweet as a regular pear, this is spikey desert fruit puts up a fight";
+        PricklyPear.basePrice = 8;
+        PricklyPear.imageUrl = "ItemImages/item_pricklypear";
+        PricklyPear.tag = "food";
+        PricklyPear.rarity = "common";
+        PricklyPear.quantity = 1;
+        database.Add(PricklyPear);
+
+        Item RawSteak = new Item();
+        RawSteak.itemName = "Raw Steak";
+        RawSteak.itemDescription = "Sliced and ready for cooking!";
+        RawSteak.basePrice = 15;
+        RawSteak.imageUrl = "ItemImages/item_rawsteak";
+        RawSteak.tag = "food";
+        RawSteak.rarity = "common";
+        RawSteak.quantity = 1;
+        database.Add(RawSteak);
+
+        Item RubyRing = new Item();
+        RubyRing.itemName = "Ruby Ring";
+        RubyRing.itemDescription = "It's bright and red, it'd probably make a beautiful gift!";
+        RubyRing.basePrice = 50;
+        RubyRing.imageUrl = "ItemImages/item_ring";
+        RubyRing.tag = "jewellery";
+        RubyRing.rarity = "uncommon";
+        RubyRing.quantity = 1;
+        database.Add(RubyRing);
+
+        Item Seaweed = new Item();
+        Seaweed.itemName = "Seaweed";
+        Seaweed.itemDescription = "Anyone for sushi?";
+        Seaweed.basePrice = 5;
+        Seaweed.imageUrl = "ItemImages/item_seaweed";
+        Seaweed.tag = "food";
+        Seaweed.rarity = "common";
+        Seaweed.quantity = 1;
+        database.Add(Seaweed);
+
+        Item IronShield = new Item();
+        IronShield.itemName = "Iron Shield";
+        IronShield.itemDescription = "Not technically a weapon, but you won't see any pacifists with one";
+        IronShield.basePrice = 55;
+        IronShield.imageUrl = "ItemImages/item_shield";
+        IronShield.tag = "weapon";
+        IronShield.rarity = "uncommon";
+        IronShield.quantity = 1;
+        database.Add(IronShield);
+
+        Item IronSword = new Item();
+        IronSword.itemName = "Iron Sword";
+        IronSword.itemDescription = "The quintessential warrior's weapon!";
+        IronSword.basePrice = 45;
+        IronSword.imageUrl = "ItemImages/item_sword";
+        IronSword.tag = "weapon";
+        IronSword.rarity = "common";
+        IronSword.quantity = 1;
+        database.Add(IronSword);
+
+        Item Earthworm = new Item();
+        Earthworm.itemName = "Earthworm";
+        Earthworm.itemDescription = "C'mon man, what are you doing trying to sell worms?? Ew";
+        Earthworm.basePrice = 2;
+        Earthworm.imageUrl = "ItemImages/item_earthworm";
+        Earthworm.tag = "object";
+        Earthworm.rarity = "common";
+        Earthworm.quantity = 1;
+        database.Add(Earthworm);
 
 
     }

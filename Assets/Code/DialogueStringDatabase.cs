@@ -146,7 +146,7 @@ public class DialogueStringDatabase : MonoBehaviour {
 
 		if (parta != null && partb != null && partc != null)
 		{
-			finalstring = parta + "/n" + partb + "/n" + partc;
+			finalstring = parta + "\n" + partb + "\n" + partc;
 			return finalstring;
 		}
 		else
@@ -217,6 +217,7 @@ public class DialogueStringDatabase : MonoBehaviour {
 	{
 		genericTownStatusStrings.Add("There's a sweetness to the air today, it seems like the whole town is enjoying a relaxed day.");
         genericTownStatusStrings.Add("There seem to be more people in the streets today - you wonder if there's an event happening.");
+        genericTownStatusStrings.Add("T");
     }
 
 	public void updatecoastalTownStatusStrings()

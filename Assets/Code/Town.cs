@@ -85,23 +85,35 @@ public class Town : MonoBehaviour {
                     //Checking if the state active on the town affects item buying price
                     if (activeState[0].affectsBuySell == "buyprice")
                     {
+                        Debug.Log("1. Town's active effect affects buyprice!");
                         //Does the state only affect certain tags?
                         if (activeState[0].affectsTags)
                         {
+                            Debug.Log("2. Town's effect only affects certain item tags!");
                             //Check if the tag is equal to the states affected tag
                             if (_item.tag == activeState[0].affectedTag)
                             {
+                                Debug.Log("3. This item, " + _item.itemName + ", will be affected by the effect!");
                                 //Now check the modifier!
                                 if (activeState[0].modifierType == "addition")
                                 {
-                                    int modifier = (_item.basePrice / 100) * activeState[0].modifier;
+                                    float effectmodifier = (float)activeState[0].modifier;
+                                    float basePrice = (float)_item.basePrice;
+                                    int modifier = returnPercentage(effectmodifier, basePrice);
 									calcPrice = _item.basePrice + modifier;
+
+                                    Debug.Log("item " + _item.itemName + "had a base price of " + _item.basePrice + " but it's been changed to " + calcPrice);
+
                                 }
                                 if (activeState[0].modifierType == "subtraction")
                                 {
-
-                                    int modifier = (_item.basePrice / 100) * activeState[0].modifier;
+                                    float effectmodifier = (float)activeState[0].modifier;
+                                    float basePrice = (float)_item.basePrice;
+                                    int modifier = returnPercentage(effectmodifier, basePrice);
                                     calcPrice = _item.basePrice - modifier;
+
+                                    Debug.Log("item " + _item.itemName + "had a base price of " + _item.basePrice + " but it's been changed to " + calcPrice);
+
                                 }
 
 
@@ -114,14 +126,20 @@ public class Town : MonoBehaviour {
 							//Now check the modifier!
 							if (activeState[0].modifierType == "addition")
 							{
-								int modifier = (_item.basePrice / 100) * activeState[0].modifier;
-								calcPrice = _item.basePrice + modifier;
-							}
+                                float effectmodifier = (float)activeState[0].modifier;
+                                float basePrice = (float)_item.basePrice;
+                                int modifier = returnPercentage(effectmodifier, basePrice);
+                                calcPrice = _item.basePrice + modifier;
+                                Debug.Log("item " + _item.itemName + "had a base price of " + _item.basePrice + " but it's been changed to " + calcPrice);
+                            }
 							if (activeState[0].modifierType == "subtraction")
 							{
-								int modifier = (_item.basePrice / 100) * activeState[0].modifier;
-								calcPrice = _item.basePrice - modifier;
-							}
+                                float effectmodifier = (float)activeState[0].modifier;
+                                float basePrice = (float)_item.basePrice;
+                                int modifier = returnPercentage(effectmodifier, basePrice);
+                                calcPrice = _item.basePrice - modifier;
+                                Debug.Log("item " + _item.itemName + "had a base price of " + _item.basePrice + " but it's been changed to " + calcPrice);
+                            }
 						}
 					}
        
@@ -172,39 +190,65 @@ public class Town : MonoBehaviour {
 					//Checking if the active state onthe town affects item selling price
 					if (activeState[0].affectsBuySell == "sellprice")
 					{
+                        Debug.Log("1. Town's active effect affects sellprice!");
+
 						//Does the state only affect certain tags?
 						if (activeState[0].affectsTags)
 						{
-							//Check if item tag is equaal to states affected tag
-							if (_item.tag == activeState[0].affectedTag)
+                            Debug.Log("2. Town's effect only affects certain item tags!");
+
+                            //Check if item tag is equaal to states affected tag
+                            if (_item.tag == activeState[0].affectedTag)
 							{
-								//Now check the modifier!
-								if (activeState[0].modifierType == "addition")
+                                Debug.Log("3. This item, " + _item.itemName + ", will be affected by the effect!");
+
+                                //Now check the modifier!
+                                if (activeState[0].modifierType == "addition")
 								{
-									int modifier = (_item.basePrice / 100) * activeState[0].modifier;
-									calcPrice = _item.basePrice + modifier;
+                                    float effectmodifier = (float)activeState[0].modifier;
+                                    float basePrice = (float)_item.basePrice;
+                                    int modifier = returnPercentage(effectmodifier, basePrice);
+                                    calcPrice = _item.basePrice + modifier;
+                                    Debug.Log("item " + _item.itemName + "had a base price of " + _item.basePrice + " but it's been changed to " + calcPrice);
+
 								}
 								if (activeState[0].modifierType == "subtraction")
 								{
-									int modifier = (_item.basePrice / 100) * activeState[0].modifier;
-									calcPrice = _item.basePrice - modifier;
-								}
+                                    float effectmodifier = (float)activeState[0].modifier;
+                                    float basePrice = (float)_item.basePrice;
+                                    int modifier = returnPercentage(effectmodifier, basePrice);
+                                    calcPrice = _item.basePrice - modifier;
+                                    Debug.Log("item " + _item.itemName + "had a base price of " + _item.basePrice + " but it's been changed to " + calcPrice);
+
+                                }
 						
 							}
 						}
 						else if (activeState[0].affectedTag == null)
 						{
-							//Now check the modifier!
-							if (activeState[0].modifierType == "addition")
+                            Debug.Log("2. This item, " + _item.itemName + ", will be affected by the effect!");
+
+                            //Now check the modifier!
+                            if (activeState[0].modifierType == "addition")
 							{
-								int modifier = (_item.basePrice / 100) * activeState[0].modifier;
-								calcPrice = _item.basePrice + modifier;
-							}
+                                float effectmodifier = (float)activeState[0].modifier;
+                                float basePrice = (float)_item.basePrice;
+                                int modifier = returnPercentage(effectmodifier, basePrice);
+                                calcPrice = _item.basePrice + modifier;
+
+                                Debug.Log("item " + _item.itemName + "had a base price of " + _item.basePrice + " but it's been changed to " + calcPrice);
+
+                            }
 							if (activeState[0].modifierType == "subtraction")
 							{
-								int modifier = (_item.basePrice / 100) * activeState[0].modifier;
-								calcPrice = _item.basePrice - modifier;
-							}
+                                float effectmodifier = (float)activeState[0].modifier;
+                                float basePrice = (float)_item.basePrice;
+                                int modifier = returnPercentage(effectmodifier, basePrice);
+                                calcPrice = _item.basePrice - modifier;
+
+                                Debug.Log("item " + _item.itemName + "had a base price of " + _item.basePrice + " but it's been changed to " + calcPrice);
+
+                            }
 						}
 					}
 
@@ -323,6 +367,15 @@ public class Town : MonoBehaviour {
     {
         //SWAP UI - HIDE SCROLLVIEW AND SHOW TEXT
         //To be assigned to a button in in setupTownUI()
+    }
+
+    public int returnPercentage(float percentage, float basenumber)
+    {
+        float num = (basenumber / 100) * percentage;
+        //int someInt = (int)Math.Round(someFloat);
+        int numrounded = (int)Mathf.Round(num);
+
+        return numrounded;
     }
 
     public void setUpTownUIButtons()

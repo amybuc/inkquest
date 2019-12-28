@@ -383,7 +383,7 @@ public class WorldStateMachine : MonoBehaviour {
         WorldState famine = new WorldState();
         famine.stateName = "famine";
         famine.modifier = 40;
-        famine.affectsBuySell = "affectsBuy";
+        famine.affectsBuySell = "buyprice";
         famine.modifierType = "addition";
         famine.affectsTags = true;
         famine.affectedTag = "food";
@@ -395,7 +395,7 @@ public class WorldStateMachine : MonoBehaviour {
         WorldState bountyCrop = new WorldState();
         bountyCrop.stateName = "bounty crop";
         bountyCrop.modifier = 40;
-        bountyCrop.affectsBuySell = "affectsSell";
+        bountyCrop.affectsBuySell = "sellprice";
         bountyCrop.modifierType = "subtraction";
         bountyCrop.affectsTags = true;
         bountyCrop.affectedTag = "food";
@@ -407,7 +407,7 @@ public class WorldStateMachine : MonoBehaviour {
 		WorldState atWar = new WorldState();
 		atWar.stateName = "at war";
 		atWar.modifier = 200; //To be changed to 50 later
-		atWar.affectsBuySell = "affectsSell";
+		atWar.affectsBuySell = "sellprice";
 		atWar.modifierType = "addition";
 		atWar.affectsTags = true;
 		atWar.affectedTag = "weapon";
@@ -436,7 +436,7 @@ public class WorldStateMachine : MonoBehaviour {
 		WorldState coastal = new WorldState();
         coastal.stateName = "coastal";
         coastal.modifier = 40;
-        coastal.affectsBuySell = "affectsSell";
+        coastal.affectsBuySell = "sellprice";
         coastal.modifierType = "subtraction";
         coastal.affectsTags = false;
         coastal.affectsTownInventory = true;

@@ -34,6 +34,7 @@ public class BuyItem : MonoBehaviour {
         }
         else if (Player.playerCoins < itemCost)
         {
+            GameControllerUI.ShowNotification("Not enough coins!!");
             Debug.Log("NOT ENOUGH COINS - eventually, put in a warning UI message here");
         }
     }

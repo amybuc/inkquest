@@ -73,6 +73,7 @@
     <Compile Include="Assets\Code\ObjectSortingOrder.cs" />
     <Compile Include="Assets\Code\Player.cs" />
     <Compile Include="Assets\Code\SellItem.cs" />
+    <Compile Include="Assets\Code\StringDatabase.cs" />
     <Compile Include="Assets\Code\TimedEventHandler.cs" />
     <Compile Include="Assets\Code\Town.cs" />
     <Compile Include="Assets\Code\TutorialHandler.cs" />
