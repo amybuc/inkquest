@@ -5,10 +5,14 @@ using UnityEngine.UI;
 
 public class UIHandler : MonoBehaviour {
 
+	//Inventory
     public GameObject inventoryCanvas;
     public GameObject inventoryContent;
     public Text inventoryCoinCount;
     public Text townUICoinCount;
+
+	//Settings
+	public GameObject settingsCanvas;
 
 
     public GameObject mainCanvas;
@@ -79,8 +83,14 @@ public class UIHandler : MonoBehaviour {
 
     public void openSettings()
     {
+		settingsCanvas.SetActive(true);
+		mainCanvas.SetActive(false);
+	}
 
-    }
+	public void quitGame()
+	{
+		Application.Quit();
+	}
 
     public void refreshTownUIPlayerCoinCoint()
     {
@@ -90,8 +100,9 @@ public class UIHandler : MonoBehaviour {
     public void closeAndReturnToGame()
     {
         inventoryCanvas.SetActive(false);
-        //Add other canvases to be false here as theyre made
-        mainCanvas.SetActive(true);
+		settingsCanvas.SetActive(false);
+		//Add other canvases to be false here as theyre made
+		mainCanvas.SetActive(true);
     }
 
     public void refreshInventory()
