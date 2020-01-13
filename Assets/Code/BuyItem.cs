@@ -17,7 +17,8 @@ public class BuyItem : MonoBehaviour {
 
         GameController = GameObject.Find("GameController").GetComponent<ItemDatabase>();
         GameControllerUI = GameObject.Find("GameController").GetComponent<UIHandler>();
-        Player = GameObject.Find("Player").GetComponent<Player>();
+		Player = GameObject.Find("Player").GetComponent<Player>();
+
 	}
 	
 	// Update is called once per frame
@@ -26,8 +27,15 @@ public class BuyItem : MonoBehaviour {
 	}
 
     public void buyItem()
+
     {
-        if (Player.playerCoins >= itemCost)
+		if (Player == null || GameControllerUI == null || townUI == null || GameController == null)
+		{
+			Debug.LogError("Component Missing :: BuyItem.cs");
+			return;
+		}
+
+		if (Player.playerCoins >= itemCost)
         {
             StartCoroutine("buyAndAddItem");
 			townUI.buyItem(itemID);
@@ -41,7 +49,15 @@ public class BuyItem : MonoBehaviour {
 
     public IEnumerator buyAndAddItem()
     {
-        Debug.Log("Buying item!");
+
+		if (Player == null || GameControllerUI == null || townUI == null || GameController == null)
+		{
+			Debug.LogError("Component Missing :: BuyItem.cs");
+			yield break;
+		}
+
+
+		Debug.Log("Buying item!");
         Player.playerCoins -= itemCost;
 
         Debug.Log("Item we're looking up is itemID: " + itemID);
@@ -62,12 +78,13 @@ public class BuyItem : MonoBehaviour {
         {
             GameController.addItemToInventory(itemID);
         }
-        //This is unnecessary until i get quantities working in town inventory, but still!
-        townUI.clearTownInventory();
-        townUI.PopulateTownInventory();
-        GameControllerUI.GetComponent<UIHandler>().refreshTownUIPlayerCoinCoint();
-        //Destroy(gameObject);
-        //RELOAD UI :: (to do)
-    }
+		//This is unnecessary until i get quantities working in town inventory, but still!
+		townUI.clearTownInventory();
+		townUI.PopulateTownInventory();
+		GameControllerUI.GetComponent<UIHandler>().refreshTownUIPlayerCoinCoint();
+
+		//Destroy(gameObject);
+		//RELOAD UI :: (to do)
+	}
 
 }

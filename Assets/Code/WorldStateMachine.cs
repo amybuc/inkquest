@@ -40,13 +40,6 @@ public class WorldStateMachine : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		/*
-        if (System.DateTime.Now == stateRefreshTime)
-        {
-            RefreshTimer();
-            
-        }
-        */
 
 	}
 
@@ -115,14 +108,14 @@ public class WorldStateMachine : MonoBehaviour {
 					Debug.Log("WSM ::" + town.GetComponent<Town>().townName + " is being given a status of " + "famine");
 					//town.GetComponent<Town>().activeState[0] = state;
 				}
-				if (randomiser >= 61 && randomiser <= 80)
+				if (randomiser >= 81 && randomiser <= 90)
 				{
 					addStateToTown("at war", town.GetComponent<Town>());
 					//WorldState state = FindStateByName("at war");
 					Debug.Log("WSM ::" + town.GetComponent<Town>().townName + " is being given a status of " + "at war");
 					//town.GetComponent<Town>().activeState[0] = state;
 				}
-				if (randomiser >= 81 && randomiser <= 90)
+				if (randomiser >= 91 && randomiser <= 100)
 				{
 					addStateToTown("pacifist", town.GetComponent<Town>());
 					//WorldState state = FindStateByName("pacifist");
@@ -348,18 +341,28 @@ public class WorldStateMachine : MonoBehaviour {
 
     public bool verifyTownsHaveStates()
     {
-        //This is mainly for debugging - returns true if all towns in game have been assigned a state correctly
+		//This is mainly for debugging - returns true if all towns in game have been assigned a state correctly
+		Debug.Log("VERIFYTOWNSHAVESTATES :: isRunning");
+
         GameObject[] allTowns = GameObject.FindGameObjectsWithTag("TOWN");
+
+		if (allTowns.Length <= 0 || allTowns == null)
+		{
+			Debug.LogError("VERIFYTOWNSHAVESTATES :: No towns found :c");
+		}
 
         foreach (GameObject _town in allTowns)
         {
+			Debug.Log("VERIFYTOWNHAVESTATES :: Town being checked is " + _town.GetComponent<Town>().townName);
+
             if (_town.GetComponent<Town>().activeState[0].stateName == null)
             {
                 Debug.Log("verifyTownsHaveStates has failed - " + _town.GetComponent<Town>().townName + " has no state assigned");
                 return false;
             }
         }
-        return true;
+		Debug.Log("verifyTownsHaveStates has passed");
+		return true;
 
     }
 

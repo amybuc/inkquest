@@ -25,5 +25,15 @@ public class ZoneHandler : MonoBehaviour {
         {
             UIhandler.ShowNotification("Entering " + zoneName);
         }
+		/*
+		if (zoneName == "Sundar Sands")
+		{
+			GameObject.Find("sandParticles").SetActive(true);
+		}
+		else
+		{
+			GameObject.Find("sandParticles").SetActive(false);
+		}
+		*/
     }
 }

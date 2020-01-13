@@ -24,11 +24,12 @@ public class TimedEventHandler : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+		/*
         if (System.DateTime.Now == conditionChangeTime)
         {
             //CHANGE CONDITION?
         }
+		*/
 
         //Every 5 - 15 minutes, a town's active condition changes
 		

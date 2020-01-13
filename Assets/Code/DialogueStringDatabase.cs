@@ -207,7 +207,7 @@ public class DialogueStringDatabase : MonoBehaviour {
     public void updatebountyCropTownRumourStrings()
     {
         bountyCropTownRumourStrings.Add("Feasts on tonight at $$$! I've heard they had a bumper crop, I'm on my way to go and buy some potatoes!");
-        bountyCropTownRumourStrings.Add("Did you know that $$$ is experiencing a bountiful crop at the moment? Those lucky folks, the bread from $$$ is the best in the nation!");
+        bountyCropTownRumourStrings.Add("Did you know that $$$ is experiencing a bountiful crop at the moment? Those lucky folks, the bread from $$$ is the best in the world!");
     }
 
     //TOWN STATUS STRINGS
