@@ -25,7 +25,7 @@ public class WorldStateMachine : MonoBehaviour {
 		//Debug.Log("Start - Towns active state is " + testTown.activeState[0].stateName);
 		//Debug.Log("Finding state " + FindStateByName("bounty crop").stateName + " and it has a modifier of " + FindStateByName("bounty crop").modifierType);
 
-		RefreshNewTownInventories();
+		//RefreshNewTownInventories();
 		/*
 		if (verifyAllTownsHaveStates() == true)
 		{
@@ -458,5 +458,6 @@ public class WorldStateMachine : MonoBehaviour {
     {
         buildStateDatabase();
 		updateTownStates(true);
-	}
+        RefreshNewTownInventories();
+    }
 }

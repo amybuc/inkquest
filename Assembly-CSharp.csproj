@@ -72,6 +72,8 @@
     <Compile Include="Assets\Code\NPC.cs" />
     <Compile Include="Assets\Code\ObjectSortingOrder.cs" />
     <Compile Include="Assets\Code\Player.cs" />
+    <Compile Include="Assets\Code\ProceduralNPCHandler.cs" />
+    <Compile Include="Assets\Code\sandParticles.cs" />
     <Compile Include="Assets\Code\SellItem.cs" />
     <Compile Include="Assets\Code\StringDatabase.cs" />
     <Compile Include="Assets\Code\TimedEventHandler.cs" />

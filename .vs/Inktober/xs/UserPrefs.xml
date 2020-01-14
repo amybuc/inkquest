@@ -1,6 +1,6 @@
 ﻿<Properties StartupConfiguration="{126B4702-6927-DCD8-BD7C-E464EE322684}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Code/DialogueStringDatabase.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Code/WorldStateMachine.cs">
     <Files>
       <File FileName="Assets/Code/NPC.cs" Line="26" Column="27" />
       <File FileName="Assets/Code/UIHandler.cs" Line="119" Column="21" />
@@ -19,8 +19,9 @@
       <File FileName="Assets/Code/Dialogue.cs" Line="118" Column="40" />
       <File FileName="Assets/Code/ZoneHandler.cs" Line="30" Column="1" />
       <File FileName="Assets/Code/WorldState.cs" Line="18" Column="39" />
-      <File FileName="Assets/Code/WorldStateMachine.cs" Line="397" Column="33" />
-      <File FileName="Assets/Code/DialogueStringDatabase.cs" Line="149" Column="54" />
+      <File FileName="Assets/Code/WorldStateMachine.cs" Line="28" Column="5" />
+      <File FileName="Assets/Code/DialogueStringDatabase.cs" Line="149" Column="4" />
+      <File FileName="Assets/Code/ProceduralNPCHandler.cs" Line="95" Column="23" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
