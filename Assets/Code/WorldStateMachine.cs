@@ -433,6 +433,8 @@ public class WorldStateMachine : MonoBehaviour {
 
 		//"at war"
 
+		//LETS DO A DISAEASE ONE
+
 
 		//Passive States
 

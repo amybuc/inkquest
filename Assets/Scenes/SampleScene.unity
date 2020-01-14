@@ -9190,6 +9190,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 910244503}
+  - component: {fileID: 910244509}
   - component: {fileID: 910244504}
   - component: {fileID: 910244506}
   - component: {fileID: 910244502}
@@ -9348,6 +9349,27 @@ MonoBehaviour:
   famineTownStatusStrings: []
   bountyCropTownStatusStrings: []
   atWarTownStatusStrings: []
+--- !u!114 &910244509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 910244501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39ec8f985d1855a4386a7f12de62412f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueStringDataBase: {fileID: 910244508}
+  npcPrefab: {fileID: 1086372086603850, guid: 56e3e8098c2dffe4ca0efac05394a175, type: 2}
+  minYMaxX: {fileID: 234066784}
+  maxYMinX: {fileID: 1733678927}
+  MaxY: 0
+  MinY: 0
+  MaxX: 0
+  MinX: 0
+  colCheck: 0
+  NPCimages: []
 --- !u!1001 &917005499
 Prefab:
   m_ObjectHideFlags: 0

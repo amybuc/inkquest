@@ -74,6 +74,7 @@ public class DialogueStringDatabase : MonoBehaviour {
 
 	//FUNCTIONS
 
+
 	public string generateTownStatus(Town town)
 	{
 		string parta = null;
@@ -159,6 +160,47 @@ public class DialogueStringDatabase : MonoBehaviour {
 
 	}
 
+	public string returnRandomRumour(string statename)
+	{
+
+		Debug.Log("NPC GENERATION :: Running returnRandomRumour with state " + statename);
+
+		if (statename == "normal")
+		{
+			int randomiser = Random.Range(0, genericRumourStrings.Count);
+			Debug.Log("NPC GENERATION :: The random number to detirmine which dialogue to return is " + randomiser);
+			return genericRumourStrings[randomiser];
+		}
+		else if (statename == "famine")
+		{
+			int randomiser = Random.Range(0, famineTownRumourStrings.Count);
+			Debug.Log("NPC GENERATION :: The random number to detirmine which dialogue to return is " + randomiser);
+			return famineTownRumourStrings[randomiser];
+		}
+		else if (statename == "bounty crop")
+		{
+			int randomiser = Random.Range(0, bountyCropTownRumourStrings.Count);
+			Debug.Log("NPC GENERATION :: The random number to detirmine which dialogue to return is " + randomiser);
+			return bountyCropTownRumourStrings[randomiser];
+		}
+		else if (statename == "at war")
+		{
+			int randomiser = Random.Range(0, atWarTownRumourStrings.Count);
+			Debug.Log("NPC GENERATION :: The random number to detirmine which dialogue to return is " + randomiser);
+			return atWarTownRumourStrings[randomiser];
+		}
+		else if (statename == "pacifist")
+		{
+			int randomiser = Random.Range(0, pacifistTownRumourStrings.Count);
+			Debug.Log("NPC GENERATION :: The random number to detirmine which dialogue to return is " + randomiser);
+			return pacifistTownRumourStrings[randomiser];
+		}
+		else
+		{
+			Debug.Log("Something wrong with returnRandomRumour");
+			return null;
+		}
+	}
 
 
 
@@ -208,7 +250,8 @@ public class DialogueStringDatabase : MonoBehaviour {
     {
         bountyCropTownRumourStrings.Add("Feasts on tonight at $$$! I've heard they had a bumper crop, I'm on my way to go and buy some potatoes!");
         bountyCropTownRumourStrings.Add("Did you know that $$$ is experiencing a bountiful crop at the moment? Those lucky folks, the bread from $$$ is the best in the world!");
-    }
+		bountyCropTownRumourStrings.Add("I'm on my way to $$$! I've heard they've had a plentiful crop, I'm off to stock up my pantry.");
+	}
 
     //TOWN STATUS STRINGS
 

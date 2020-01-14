@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ProceduralNPCHandler : MonoBehaviour {
-	/*
+	
 	public DialogueStringDatabase dialogueStringDataBase;
+
+	public GameObject npcPrefab;
 
 	public GameObject minYMaxX;
 	public GameObject maxYMinX;
@@ -18,14 +20,20 @@ public class ProceduralNPCHandler : MonoBehaviour {
 	public bool colCheck = false;
 	bool isValidPos = false;
 
+	public List<string> NPCimages;
+
 	// Use this for initialization
 	void Start () {
+
+		buildNPCImagesDatabase();
 
 		MaxY = maxYMinX.transform.position.y;
 		MinY = minYMaxX.transform.position.y;
 
 		MaxX = minYMaxX.transform.position.x;
 		MinX = maxYMinX.transform.position.x;
+
+		resetAndRandomiseNPCs();
 
 
 	}
@@ -38,6 +46,20 @@ public class ProceduralNPCHandler : MonoBehaviour {
 	public void resetAndRandomiseNPCs()
 	{
 		//init class - runs all other functions in order to clear all current NPCs, then will create a random number of new NPCs and place them randomly, with randomly generated dialogue.
+		clearActiveNPCs();
+
+		int NPCnum = Random.Range(5, 10);
+		Debug.Log("Going to be making " + NPCnum + " number of NPCs!");
+
+		for (int i = 0; i < NPCnum; i++)
+		{
+			Debug.Log("RANDOMISIGN NPCS - for loop running!!");
+			GameObject newNPC = createeNewNPC();
+			newNPC.transform.position = findRandomXYPosition();
+			//newNPC.GetComponent<NPC>().dialogue = generateNPCText();
+		}
+
+
 	}
 
 	public void clearActiveNPCs()
@@ -62,7 +84,7 @@ public class ProceduralNPCHandler : MonoBehaviour {
 			x = Random.Range(MinX, MaxX);
 			y = Random.Range(MinY, MaxY);
 
-			colCheck = Physics2D.OverlapCircle(new Vector2(x, y), 5);
+			colCheck = Physics2D.OverlapCircle(new Vector2(x, y), 2);
 
 			if (colCheck == true)
 			{
@@ -87,31 +109,73 @@ public class ProceduralNPCHandler : MonoBehaviour {
 		//0. First - is the NPC going to give generic dialogue or a rumour?
 		if (Random.Range(1, 10) >= 4)
 		{
-			//dialogue will be rumour
+			//Dialogue will be rumour
+
+			//1. Find a random Town
+			GameObject[] allTowns = GameObject.FindGameObjectsWithTag("TOWN");
+			int selectedTown = Random.Range(0, allTowns.Length - 1);
+			Town town = allTowns[selectedTown].GetComponent<Town>();
+
+			string rawdialogue = dialogueStringDataBase.returnRandomRumour(town.activeState[0].stateName);
+
+			if (rawdialogue.Contains("/"))
+			{
+				string[] parsedDialogue = rawdialogue.Split(char.Parse("/"));
+				return parsedDialogue;
+
+			}
+			else
+			{
+				string[] parsedDialogue = new string[0];
+				parsedDialogue[0] = rawdialogue;
+				return parsedDialogue;
+			}
 		}
 		else
 		{
 			//dialogue will be generic
 			int dialogue = Random.Range(0, dialogueStringDataBase.genericDialogue.Count-1);
-			
+
+			if (dialogueStringDataBase.genericDialogue[dialogue].Contains("/"))
+			{
+				string[] dialoguearray = dialogueStringDataBase.genericDialogue[dialogue].Split(char.Parse("/"));
+				return dialoguearray;
+			}
+			else
+			{
+				string[] parsedDialogue = new string[0];
+				parsedDialogue[0] = dialogueStringDataBase.genericDialogue[dialogue];
+				return parsedDialogue;
+			}
 			
 		}
-		
-		
-
-		//1. Find a random Town
-		//2. Find that towns state is (if its normal, will just give a generic rumour)
-		//3. Generate a random string from the string database, of that state type (lets make a function within dialoguestringdatabase for this, that takes input of the state name)
-		//4. Fill it - replace $$$ with the town name, and split the string at any / symbols.
-		//5. return a string array
 	}
 
 	public GameObject createeNewNPC()
 	{
+		GameObject newNPC = Instantiate(npcPrefab);
+		newNPC.tag = "NPC";
+		Debug.Log("New NPC being instantiated!!");
+
+		//This would be a good place to put Quest info, item info, etc
+
+		//Randomise Art
+		int randomiser = Random.Range(0, NPCimages.Count - 1);
+		newNPC.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(NPCimages[randomiser]);
+
+		return newNPC;
+
+
 		//returns an instantiated NPC, with randomised art, and places an NPC component on the gameobject, ready to be filled with dialogue/information. Also give object the tag 'NPC'
+	}
+
+	public void buildNPCImagesDatabase()
+	{
+		NPCimages.Add("NPCImages/Art_NPC_generic01");
+		NPCimages.Add("NPCImages/Art_NPC_generic02");
 	}
 
 
 	//Possibility for expansion - a randomly generated quest system?
-	*/
+	
 }
