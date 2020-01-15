@@ -49,14 +49,14 @@ public class ProceduralNPCHandler : MonoBehaviour {
 		clearActiveNPCs();
 
 		int NPCnum = Random.Range(5, 10);
-		Debug.Log("Going to be making " + NPCnum + " number of NPCs!");
+		//Debug.Log("Going to be making " + NPCnum + " number of NPCs!");
 
 		for (int i = 0; i < NPCnum; i++)
 		{
-			Debug.Log("RANDOMISIGN NPCS - for loop running!!");
+			//Debug.Log("RANDOMISIGN NPCS - for loop running!!");
 			GameObject newNPC = createeNewNPC();
 			newNPC.transform.position = findRandomXYPosition();
-			//newNPC.GetComponent<NPC>().dialogue = generateNPCText();
+			newNPC.GetComponent<NPC>().dialogue = generateNPCText();
 		}
 
 
@@ -79,10 +79,17 @@ public class ProceduralNPCHandler : MonoBehaviour {
 		float x;
 		float y;
 
+        //remove this below line later
+        isValidPos = true;
+
 		do
 		{
 			x = Random.Range(MinX, MaxX);
 			y = Random.Range(MinY, MaxY);
+
+            //THIS IS THE POINT AT WHICH WE NEED TO CHECK ITS NOT BEING INSTANTIATED OVER A COLLIDER - currently its not working, so put this on the to-do list
+
+            /*
 
 			colCheck = Physics2D.OverlapCircle(new Vector2(x, y), 2);
 
@@ -94,6 +101,7 @@ public class ProceduralNPCHandler : MonoBehaviour {
 			{
 				isValidPos = true;
 			}
+			*/
 
 		} while (isValidPos == false);
 
@@ -126,8 +134,10 @@ public class ProceduralNPCHandler : MonoBehaviour {
 			}
 			else
 			{
-				string[] parsedDialogue = new string[0];
+				string[] parsedDialogue = new string[1];
+                //Debug.Log("Raw dialogue is " + rawdialogue);
 				parsedDialogue[0] = rawdialogue;
+                //Debug.Log("parsedDialogue[0] is " + parsedDialogue[0]);
 				return parsedDialogue;
 			}
 		}
@@ -143,7 +153,7 @@ public class ProceduralNPCHandler : MonoBehaviour {
 			}
 			else
 			{
-				string[] parsedDialogue = new string[0];
+				string[] parsedDialogue = new string[1];
 				parsedDialogue[0] = dialogueStringDataBase.genericDialogue[dialogue];
 				return parsedDialogue;
 			}
@@ -155,7 +165,7 @@ public class ProceduralNPCHandler : MonoBehaviour {
 	{
 		GameObject newNPC = Instantiate(npcPrefab);
 		newNPC.tag = "NPC";
-		Debug.Log("New NPC being instantiated!!");
+		//Debug.Log("New NPC being instantiated!!");
 
 		//This would be a good place to put Quest info, item info, etc
 

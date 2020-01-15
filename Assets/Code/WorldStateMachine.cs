@@ -329,7 +329,7 @@ public class WorldStateMachine : MonoBehaviour {
         {
             if (_state.stateName == statename)
             {
-				Debug.Log("WSM :: FindStateByName :: returning " + _state.stateName);
+				//Debug.Log("WSM :: FindStateByName :: returning " + _state.stateName);
 				return _state;
             }
 
@@ -342,26 +342,26 @@ public class WorldStateMachine : MonoBehaviour {
     public bool verifyTownsHaveStates()
     {
 		//This is mainly for debugging - returns true if all towns in game have been assigned a state correctly
-		Debug.Log("VERIFYTOWNSHAVESTATES :: isRunning");
+		//Debug.Log("VERIFYTOWNSHAVESTATES :: isRunning");
 
         GameObject[] allTowns = GameObject.FindGameObjectsWithTag("TOWN");
 
 		if (allTowns.Length <= 0 || allTowns == null)
 		{
-			Debug.LogError("VERIFYTOWNSHAVESTATES :: No towns found :c");
+			//Debug.LogError("VERIFYTOWNSHAVESTATES :: No towns found :c");
 		}
 
         foreach (GameObject _town in allTowns)
         {
-			Debug.Log("VERIFYTOWNHAVESTATES :: Town being checked is " + _town.GetComponent<Town>().townName);
+			//Debug.Log("VERIFYTOWNHAVESTATES :: Town being checked is " + _town.GetComponent<Town>().townName);
 
             if (_town.GetComponent<Town>().activeState[0].stateName == null)
             {
-                Debug.Log("verifyTownsHaveStates has failed - " + _town.GetComponent<Town>().townName + " has no state assigned");
+                //Debug.Log("verifyTownsHaveStates has failed - " + _town.GetComponent<Town>().townName + " has no state assigned");
                 return false;
             }
         }
-		Debug.Log("verifyTownsHaveStates has passed");
+		//Debug.Log("verifyTownsHaveStates has passed");
 		return true;
 
     }
