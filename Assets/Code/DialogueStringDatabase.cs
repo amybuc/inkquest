@@ -94,12 +94,12 @@ public class DialogueStringDatabase : MonoBehaviour {
 		//first part - location specific
 		if (town.townLocation == "coastal")
 		{
-			Debug.Log("DSD :: Town is on the coast!");
+			//Debug.Log("DSD :: Town is on the coast!");
 			parta = coastalTownStatusStrings[Random.Range(0, coastalTownStatusStrings.Count - 1)];
 		}
 		else if (town.townLocation == "forest")
 		{
-			Debug.Log("DSD :: Town is on the coast!");
+			//Debug.Log("DSD :: Town is on the coast!");
 			parta = forestTownStatusStrings[Random.Range(0, forestTownStatusStrings.Count - 1)];
 		}
 		else if (town.townLocation == "desert")
@@ -172,41 +172,41 @@ public class DialogueStringDatabase : MonoBehaviour {
 	public string returnRandomRumour(string statename)
 	{
 
-		Debug.Log("NPC GENERATION :: Running returnRandomRumour with state " + statename);
+		//Debug.Log("NPC GENERATION :: Running returnRandomRumour with state " + statename);
 
 		if (statename == "normal")
 		{
 			int randomiser = Random.Range(0, genericRumourStrings.Count);
-            Debug.Log("The amount of strings in this particular database is " + genericRumourStrings.Count);
-			Debug.Log("NPC GENERATION :: The random number to detirmine which dialogue to return is " + randomiser);
+            //Debug.Log("The amount of strings in this particular database is " + genericRumourStrings.Count);
+			//Debug.Log("NPC GENERATION :: The random number to detirmine which dialogue to return is " + randomiser);
 			return genericRumourStrings[randomiser];
 		}
 		else if (statename == "famine")
 		{
 			int randomiser = Random.Range(0, famineTownRumourStrings.Count);
-            Debug.Log("The amount of strings in this particular database is " + famineTownRumourStrings.Count);
-            Debug.Log("NPC GENERATION :: The random number to detirmine which dialogue to return is " + randomiser);
+            //Debug.Log("The amount of strings in this particular database is " + famineTownRumourStrings.Count);
+            //Debug.Log("NPC GENERATION :: The random number to detirmine which dialogue to return is " + randomiser);
 			return famineTownRumourStrings[randomiser];
 		}
 		else if (statename == "bounty crop")
 		{
 			int randomiser = Random.Range(0, bountyCropTownRumourStrings.Count);
-            Debug.Log("The amount of strings in this particular database is " + bountyCropTownRumourStrings.Count);
-            Debug.Log("NPC GENERATION :: The random number to detirmine which dialogue to return is " + randomiser);
+            //Debug.Log("The amount of strings in this particular database is " + bountyCropTownRumourStrings.Count);
+            //Debug.Log("NPC GENERATION :: The random number to detirmine which dialogue to return is " + randomiser);
 			return bountyCropTownRumourStrings[randomiser];
 		}
 		else if (statename == "at war")
 		{
 			int randomiser = Random.Range(0, atWarTownRumourStrings.Count);
-            Debug.Log("The amount of strings in this particular database is " + atWarTownRumourStrings.Count);
-            Debug.Log("NPC GENERATION :: The random number to detirmine which dialogue to return is " + randomiser);
+            //Debug.Log("The amount of strings in this particular database is " + atWarTownRumourStrings.Count);
+            //Debug.Log("NPC GENERATION :: The random number to detirmine which dialogue to return is " + randomiser);
 			return atWarTownRumourStrings[randomiser];
 		}
 		else if (statename == "pacifist")
 		{
 			int randomiser = Random.Range(0, pacifistTownRumourStrings.Count);
-            Debug.Log("The amount of strings in this particular database is " + pacifistTownRumourStrings.Count);
-            Debug.Log("NPC GENERATION :: The random number to detirmine which dialogue to return is " + randomiser);
+            //Debug.Log("The amount of strings in this particular database is " + pacifistTownRumourStrings.Count);
+            //Debug.Log("NPC GENERATION :: The random number to detirmine which dialogue to return is " + randomiser);
 			return pacifistTownRumourStrings[randomiser];
 		}
 		else
@@ -241,7 +241,7 @@ public class DialogueStringDatabase : MonoBehaviour {
 
 	public void updateGenericRumourStrings()
 	{
-        Debug.Log("updateGenericRumourStrings() is running!");
+        //Debug.Log("updateGenericRumourStrings() is running!");
 		genericRumourStrings.Add("They say there are cats who went mad in the Eldar Woods somewhere. They also say that they're plotting to revive the old ways. / I mean, I don't believe that kind of stuff, it's just scary stories for kids - right?");
 		genericRumourStrings.Add("I've heard that the towns along the coast are known for their fish - I bet cats living in the sands would give anything to try it!");
 		genericRumourStrings.Add("The sands are a pretty unforgiving kind of place, have you heard?");
@@ -250,7 +250,7 @@ public class DialogueStringDatabase : MonoBehaviour {
 
 	public void updatePacifistTownRumourStrings()
 	{
-        Debug.Log("updatePacifistTownRumourStrings() is running!");
+        //Debug.Log("updatePacifistTownRumourStrings() is running!");
         pacifistTownRumourStrings.Add("Have you heard? $$$ have declared peace in their walls - anyone trading weapons around there best be wary.");
 		pacifistTownRumourStrings.Add("$$$ has been declared a pacifist city - what does that mean, I wonder?");
 		pacifistTownRumourStrings.Add("I'm considering moving to $$$ - I want my kittens to grow up in a peaceful, pacifist city.");
@@ -258,14 +258,14 @@ public class DialogueStringDatabase : MonoBehaviour {
 	}
 
     public void updatefamineTownRumourStrings(){
-        Debug.Log("updatefamineTownRumourStrings() is running!");
+        //Debug.Log("updatefamineTownRumourStrings() is running!");
         famineTownRumourStrings.Add("I've heard tell that $$$ have had a disappointing crop - it'll be tough getting food in mouths in those parts.");
         famineTownRumourStrings.Add("I'm on my way to visit my mother, in $$$. I've heard they're facing a food crisis, so I'm bringing her some supplies / I do hope they manage to get some food to those poor, poor people.");
     }
 
     public void updatebountyCropTownRumourStrings()
     {
-        Debug.Log("updatebountyCropTownRumourStrings() is running!");
+        //Debug.Log("updatebountyCropTownRumourStrings() is running!");
         bountyCropTownRumourStrings.Add("Feasts on tonight at $$$! I've heard they had a bumper crop, I'm on my way to go and buy some potatoes!");
         bountyCropTownRumourStrings.Add("Did you know that $$$ is experiencing a bountiful crop at the moment? Those lucky folks, the bread from $$$ is the best in the world!");
 		bountyCropTownRumourStrings.Add("I'm on my way to $$$! I've heard they've had a plentiful crop, I'm off to stock up my pantry.");
@@ -273,7 +273,7 @@ public class DialogueStringDatabase : MonoBehaviour {
 
     public void updateAtWarTownRumourStrings() //Eventually, add a secondary $$$ value to detirmine who theyre going to war against
     {
-        Debug.Log("updateAtWarTownRumourStrings() is running!");
+        //Debug.Log("updateAtWarTownRumourStrings() is running!");
         atWarTownRumourStrings.Add("You should consider steering clear of $$$, friend! I've heard the torches are lit and the weapons sharpened for war there.");
         atWarTownRumourStrings.Add("Have you heard? $$$ is at war!");
         atWarTownRumourStrings.Add("I'm off to $$$ to make my fortune as a soldier - have you heard? They're going to war!");

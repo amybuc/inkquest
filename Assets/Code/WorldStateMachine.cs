@@ -18,20 +18,29 @@ public class WorldStateMachine : MonoBehaviour {
     public string rarity;
 
 
+    [Header("[ GLOBAL TIMER STUFF ]")]
+    public DateTime reshuffleTime;
+    public ProceduralNPCHandler npcHandler;
+    public bool firstTimeRun = true;
+
+
 
     // Use this for initialization
     void Start () {
 
-		//Debug.Log("Start - Towns active state is " + testTown.activeState[0].stateName);
-		//Debug.Log("Finding state " + FindStateByName("bounty crop").stateName + " and it has a modifier of " + FindStateByName("bounty crop").modifierType);
+        //Debug.Log("Start - Towns active state is " + testTown.activeState[0].stateName);
+        //Debug.Log("Finding state " + FindStateByName("bounty crop").stateName + " and it has a modifier of " + FindStateByName("bounty crop").modifierType);
 
-		//RefreshNewTownInventories();
-		/*
+        //RefreshNewTownInventories();
+        /*
 		if (verifyAllTownsHaveStates() == true)
 		{
 			
 		}
 		*/
+
+        reshuffleTime = System.DateTime.Now.AddSeconds(5);
+        Debug.Log("Reshuffle Time is " + reshuffleTime);
 		
 
 
@@ -41,9 +50,34 @@ public class WorldStateMachine : MonoBehaviour {
 	void Update () {
 
 
-	}
+        if (System.DateTime.Now > reshuffleTime)
+        {
+            Debug.Log("States and NPCs being reshuffled!");
 
-	public bool verifyAllTownsHaveStates()
+            updateTownStates(firstTimeRun);
+            RefreshNewTownInventories();
+
+            if (firstTimeRun == false)
+            {
+                npcHandler.resetAndRandomiseNPCs();
+            }
+
+            firstTimeRun = false;
+
+            //reshuffle reshuffleTime
+            reshuffleTime = System.DateTime.Now.AddMinutes(1); //This is for debugging
+            //reshuffleTime = System.DateTime.Now.AddMinutes(UnityEngine.Random.Range(6, 15));
+            Debug.Log("Reshuffle Time now set to " + reshuffleTime);
+
+        }
+
+
+        //RefreshNewTownInventories();
+
+
+    }
+
+    public bool verifyAllTownsHaveStates()
 	{
 		GameObject[] allTowns = GameObject.FindGameObjectsWithTag("TOWN");
 		foreach (GameObject town in allTowns)
@@ -70,16 +104,16 @@ public class WorldStateMachine : MonoBehaviour {
 		Debug.Log("WSM :: update Town states run!");
 
 		GameObject[] allTowns = GameObject.FindGameObjectsWithTag("TOWN");
-		Debug.Log("Amount of towns: " + allTowns.Length);
+		//Debug.Log("Amount of towns: " + allTowns.Length);
 		foreach (GameObject town in allTowns)
 		{
-			Debug.Log("WSM :: Town to assign a state to is: " + town.GetComponent<Town>().townName);
+			//Debug.Log("WSM :: Town to assign a state to is: " + town.GetComponent<Town>().townName);
 			//RANDOMISER
 			//First, lets descide whether we're changing our current state!
 
 			if (firstTimeRun == false && UnityEngine.Random.Range(0, 10) >= 6)
 			{
-				Debug.Log("The state will remain the same");
+				//Debug.Log("The state will remain the same");
 				//State will remain the same!
 			}
 			else
@@ -91,35 +125,35 @@ public class WorldStateMachine : MonoBehaviour {
 				{
 					addStateToTown("normal", town.GetComponent<Town>());
 					//WorldState state = FindStateByName("normal");
-					Debug.Log("WSM ::" + town.GetComponent<Town>().townName + " is being given a status of " + "normal");
+					//Debug.Log("WSM ::" + town.GetComponent<Town>().townName + " is being given a status of " + "normal");
 					//town.GetComponent<Town>().activeState[0] = state;
 				}
 				if (randomiser >= 41 && randomiser <= 60)
 				{
 					addStateToTown("bounty crop", town.GetComponent<Town>());
 					//WorldState state = FindStateByName("bounty crop");
-					Debug.Log("WSM ::" + town.GetComponent<Town>().townName + " is being given a status of " + "bounty crop");
+					//Debug.Log("WSM ::" + town.GetComponent<Town>().townName + " is being given a status of " + "bounty crop");
 					//town.GetComponent<Town>().activeState[0] = state;
 				}
 				if (randomiser >= 61 && randomiser <= 80)
 				{
 					addStateToTown("famine", town.GetComponent<Town>());
 					//WorldState state = FindStateByName("famine");
-					Debug.Log("WSM ::" + town.GetComponent<Town>().townName + " is being given a status of " + "famine");
+					//Debug.Log("WSM ::" + town.GetComponent<Town>().townName + " is being given a status of " + "famine");
 					//town.GetComponent<Town>().activeState[0] = state;
 				}
 				if (randomiser >= 81 && randomiser <= 90)
 				{
 					addStateToTown("at war", town.GetComponent<Town>());
 					//WorldState state = FindStateByName("at war");
-					Debug.Log("WSM ::" + town.GetComponent<Town>().townName + " is being given a status of " + "at war");
+					//Debug.Log("WSM ::" + town.GetComponent<Town>().townName + " is being given a status of " + "at war");
 					//town.GetComponent<Town>().activeState[0] = state;
 				}
 				if (randomiser >= 91 && randomiser <= 100)
 				{
 					addStateToTown("pacifist", town.GetComponent<Town>());
 					//WorldState state = FindStateByName("pacifist");
-					Debug.Log("WSM ::" + town.GetComponent<Town>().townName + " is being given a status of " + "pacifist");
+					//Debug.Log("WSM ::" + town.GetComponent<Town>().townName + " is being given a status of " + "pacifist");
 					//town.GetComponent<Town>().activeState[0] = state;
 				}
 
@@ -142,7 +176,7 @@ public class WorldStateMachine : MonoBehaviour {
     public void RefreshNewTownInventories()
     {
         Debug.Log("L O G :: RefreshNewTownInventories Run");
-        Debug.Log("SANITY CHECK - verify all towns for states returns " + verifyTownsHaveStates());
+        Debug.Log("SANITY CHECK - verify all towns for states returns, its " + verifyTownsHaveStates());
         //Refresh all town inventories based on each town's active condition!
 
         GameObject[] allTowns = GameObject.FindGameObjectsWithTag("TOWN");
@@ -215,7 +249,7 @@ public class WorldStateMachine : MonoBehaviour {
         for (int i = 0; i < inventorySize; i++)
         {
             int randomiser = UnityEngine.Random.Range(0, 100);
-            //Debug.Log("1. The raritychecker numer is " + randomiser);
+            Debug.Log("1. The raritychecker numer is " + randomiser);
 
             if (randomiser >= 0 && randomiser <= 85)
             {
@@ -256,7 +290,7 @@ public class WorldStateMachine : MonoBehaviour {
                         if (possibleItems[itemnum].tag == tag)
                         {
                             outputItems.Add(possibleItems[itemnum]);
-                            //Debug.Log(possibleItems[itemnum].itemName + "is being added to town inventory because it has the tag " + tag);
+                            Debug.Log(possibleItems[itemnum].itemName + "is being added to town inventory because it has the tag " + tag);
                         }
                         else //the tag doesnt equal the needed tag! Keep shuffling
                         {
@@ -266,7 +300,7 @@ public class WorldStateMachine : MonoBehaviour {
                             }
 
                             outputItems.Add(possibleItems[itemnum]);
-                            //Debug.Log(possibleItems[itemnum].itemName + "is being added to town inventory because it has the tag " + tag);
+                            Debug.Log(possibleItems[itemnum].itemName + "is being added to town inventory because it has the tag " + tag);
                         }
                     }
 
@@ -275,7 +309,7 @@ public class WorldStateMachine : MonoBehaviour {
                         if (possibleItems[itemnum].tag != tag)
                         {
                             outputItems.Add(possibleItems[itemnum]);
-                            //Debug.Log(possibleItems[itemnum].itemName + "is being added to town inventory because it doesn't have the tag " + tag);
+                            Debug.Log(possibleItems[itemnum].itemName + "is being added to town inventory because it doesn't have the tag " + tag);
                         }
                         else
                         {
@@ -285,7 +319,7 @@ public class WorldStateMachine : MonoBehaviour {
                             }
 
                             outputItems.Add(possibleItems[itemnum]);
-                            //Debug.Log(possibleItems[itemnum].itemName + "is being added to town inventory because it doesn't have the tag " + tag);
+                            Debug.Log(possibleItems[itemnum].itemName + "is being added to town inventory because it doesn't have the tag " + tag);
                         }
                     }
                 }
@@ -457,7 +491,7 @@ public class WorldStateMachine : MonoBehaviour {
     public void Awake()
     {
         buildStateDatabase();
-		updateTownStates(true);
-        RefreshNewTownInventories();
+		//updateTownStates(true);
+        //RefreshNewTownInventories();
     }
 }

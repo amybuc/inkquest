@@ -33,7 +33,7 @@ public class ProceduralNPCHandler : MonoBehaviour {
 		MaxX = minYMaxX.transform.position.x;
 		MinX = maxYMinX.transform.position.x;
 
-		resetAndRandomiseNPCs();
+		//resetAndRandomiseNPCs();
 
 
 	}
@@ -45,6 +45,8 @@ public class ProceduralNPCHandler : MonoBehaviour {
 
 	public void resetAndRandomiseNPCs()
 	{
+        Debug.Log("resetAndRandomiseNPCs() run!");
+
 		//init class - runs all other functions in order to clear all current NPCs, then will create a random number of new NPCs and place them randomly, with randomly generated dialogue.
 		clearActiveNPCs();
 

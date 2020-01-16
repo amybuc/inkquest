@@ -3823,7 +3823,7 @@ Prefab:
         type: 3}
     - target: {fileID: 1844522654282400, guid: ca80bceff35f54a958611ae6078d79bf, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca80bceff35f54a958611ae6078d79bf, type: 2}
@@ -4808,7 +4808,7 @@ Prefab:
         type: 3}
     - target: {fileID: 1844522654282400, guid: ca80bceff35f54a958611ae6078d79bf, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca80bceff35f54a958611ae6078d79bf, type: 2}
@@ -8762,7 +8762,7 @@ Prefab:
         type: 3}
     - target: {fileID: 1844522654282400, guid: ca80bceff35f54a958611ae6078d79bf, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca80bceff35f54a958611ae6078d79bf, type: 2}
@@ -9318,6 +9318,8 @@ MonoBehaviour:
   itemDatabase: {fileID: 910244502}
   testTown: {fileID: 1443605321}
   rarity: 
+  npcHandler: {fileID: 910244509}
+  firstTimeRun: 1
 --- !u!114 &910244508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9739,7 +9741,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &941641674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9785,7 +9787,7 @@ Canvas:
   m_GameObject: {fileID: 941641673}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -10022,7 +10024,7 @@ Prefab:
         type: 3}
     - target: {fileID: 1844522654282400, guid: ca80bceff35f54a958611ae6078d79bf, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca80bceff35f54a958611ae6078d79bf, type: 2}
@@ -14119,7 +14121,7 @@ Prefab:
         type: 3}
     - target: {fileID: 1844522654282400, guid: ca80bceff35f54a958611ae6078d79bf, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca80bceff35f54a958611ae6078d79bf, type: 2}
@@ -15877,7 +15879,7 @@ Prefab:
         type: 3}
     - target: {fileID: 1844522654282400, guid: ca80bceff35f54a958611ae6078d79bf, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca80bceff35f54a958611ae6078d79bf, type: 2}
