@@ -183,6 +183,18 @@ public class ProceduralNPCHandler : MonoBehaviour {
 	{
 		NPCimages.Add("NPCImages/Art_NPC_generic01");
 		NPCimages.Add("NPCImages/Art_NPC_generic02");
+		NPCimages.Add("NPCImages/Art_NPC_generic03");
+		NPCimages.Add("NPCImages/Art_NPC_generic04");
+		NPCimages.Add("NPCImages/Art_NPC_generic05");
+		NPCimages.Add("NPCImages/Art_NPC_generic06");
+		NPCimages.Add("NPCImages/Art_NPC_generic07");
+		NPCimages.Add("NPCImages/Art_NPC_generic08");
+		NPCimages.Add("NPCImages/Art_NPC_generic09");
+		NPCimages.Add("NPCImages/Art_NPC_generic10");
+		NPCimages.Add("NPCImages/Art_NPC_generic11");
+		NPCimages.Add("NPCImages/Art_NPC_generic12");
+		NPCimages.Add("NPCImages/Art_NPC_generic13");
+		NPCimages.Add("NPCImages/Art_NPC_generic14");
 	}
 
 
