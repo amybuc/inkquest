@@ -25,6 +25,8 @@ public class Player : MonoBehaviour {
     //NEW MOVEMENT
     Rigidbody2D rb;
 
+    public bool isBusy;
+
     public void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
@@ -107,7 +109,10 @@ public class Player : MonoBehaviour {
         change = Vector3.zero;
         change.x = Input.GetAxisRaw("Horizontal");
         change.y = Input.GetAxisRaw("Vertical");
-        UpdateAnimationAndMove();
+        if (!isBusy)
+        {
+            UpdateAnimationAndMove();
+        }
 
         if (Input.GetKeyDown(KeyCode.E))
         {

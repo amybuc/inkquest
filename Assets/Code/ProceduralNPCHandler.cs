@@ -114,27 +114,33 @@ public class ProceduralNPCHandler : MonoBehaviour {
 
 	public string[] generateNPCText()
 	{
-		//Returns dialogue for a randomly generated NPC - feeds from the currently active states of towns. Also fills the dialogue template in with relevant information, ie, town name, etc.
+        //Returns dialogue for a randomly generated NPC - feeds from the currently active states of towns. Also fills the dialogue template in with relevant information, ie, town name, etc.
 
-		//0. First - is the NPC going to give generic dialogue or a rumour?
-		if (Random.Range(1, 10) >= 4)
+        //1. Find a random Town
+        GameObject[] allTowns = GameObject.FindGameObjectsWithTag("TOWN");
+        int selectedTown = Random.Range(0, allTowns.Length - 1);
+        Town town = allTowns[selectedTown].GetComponent<Town>();
+
+        //0. First - is the NPC going to give generic dialogue or a rumour?
+        //if (Random.Range(1, 10) >= 4)
+        if (Random.Range(1, 10) >= 1)
 		{
 			//Dialogue will be rumour
 
-			//1. Find a random Town
-			GameObject[] allTowns = GameObject.FindGameObjectsWithTag("TOWN");
-			int selectedTown = Random.Range(0, allTowns.Length - 1);
-			Town town = allTowns[selectedTown].GetComponent<Town>();
-
 			string rawdialogue = dialogueStringDataBase.returnRandomRumour(town.activeState[0].stateName);
 
-			if (rawdialogue.Contains("/"))
+            if (rawdialogue.Contains("$$$"))
+            {
+                rawdialogue = rawdialogue.Replace("$$$", town.townName);
+
+            }
+            if (rawdialogue.Contains("/"))
 			{
 				string[] parsedDialogue = rawdialogue.Split(char.Parse("/"));
 				return parsedDialogue;
 
 			}
-			else
+            if (!rawdialogue.Contains("$$$") && !rawdialogue.Contains("/"))
 			{
 				string[] parsedDialogue = new string[1];
                 //Debug.Log("Raw dialogue is " + rawdialogue);
@@ -142,25 +148,35 @@ public class ProceduralNPCHandler : MonoBehaviour {
                 //Debug.Log("parsedDialogue[0] is " + parsedDialogue[0]);
 				return parsedDialogue;
 			}
+            Debug.Log("GENERATE NPC TEXT HAS FAILED, NO DIALOGUE RETURNED");
+            return null;
 		}
 		else
 		{
 			//dialogue will be generic
-			int dialogue = Random.Range(0, dialogueStringDataBase.genericDialogue.Count-1);
+			int dialogueint = Random.Range(0, dialogueStringDataBase.genericDialogue.Count-1);
+            string dialogue = dialogueStringDataBase.genericDialogue[dialogueint];
 
-			if (dialogueStringDataBase.genericDialogue[dialogue].Contains("/"))
+            if (dialogue.Contains("$$$"))
+            {
+                dialogue = dialogue.Replace("$$$", town.townName);
+
+            }
+            if (dialogue.Contains("/"))
 			{
-				string[] dialoguearray = dialogueStringDataBase.genericDialogue[dialogue].Split(char.Parse("/"));
+				string[] dialoguearray = dialogue.Split(char.Parse("/"));
 				return dialoguearray;
 			}
-			else
-			{
+            if (!dialogue.Contains("$$$") && !dialogue.Contains("/"))
+            {
 				string[] parsedDialogue = new string[1];
-				parsedDialogue[0] = dialogueStringDataBase.genericDialogue[dialogue];
+				parsedDialogue[0] = dialogue;
 				return parsedDialogue;
 			}
-			
-		}
+            Debug.Log("GENERATE NPC TEXT HAS FAILED, NO DIALOGUE RETURNED");
+            return null;
+
+        }
 	}
 
 	public GameObject createeNewNPC()

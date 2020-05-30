@@ -23,6 +23,8 @@ public class WorldStateMachine : MonoBehaviour {
     public ProceduralNPCHandler npcHandler;
     public bool firstTimeRun = true;
 
+    bool reshuffleActive;
+
 
 
     // Use this for initialization
@@ -52,6 +54,12 @@ public class WorldStateMachine : MonoBehaviour {
 
         if (System.DateTime.Now > reshuffleTime)
         {
+            if (reshuffleActive == false)
+            {
+                StartCoroutine(ReshuffleAll());
+            }
+
+            /*
             Debug.Log("States and NPCs being reshuffled!");
 
             updateTownStates(firstTimeRun);
@@ -68,6 +76,7 @@ public class WorldStateMachine : MonoBehaviour {
             reshuffleTime = System.DateTime.Now.AddMinutes(1); //This is for debugging
             //reshuffleTime = System.DateTime.Now.AddMinutes(UnityEngine.Random.Range(6, 15));
             Debug.Log("Reshuffle Time now set to " + reshuffleTime);
+            */
 
         }
 
@@ -76,6 +85,39 @@ public class WorldStateMachine : MonoBehaviour {
 
 
     }
+
+    public IEnumerator ReshuffleAll()
+    {
+        reshuffleActive = true;
+
+        Debug.Log("States and NPCs being reshuffled!");
+
+        updateTownStates(firstTimeRun);
+
+        yield return new WaitForSeconds(1f);
+
+        RefreshNewTownInventories();
+
+        yield return new WaitForSeconds(1f);
+
+        if (firstTimeRun == false)
+        {
+            npcHandler.resetAndRandomiseNPCs();
+        }
+
+        firstTimeRun = false;
+
+        //reshuffle reshuffleTime
+        reshuffleTime = System.DateTime.Now.AddMinutes(1); //This is for debugging
+                                                           //reshuffleTime = System.DateTime.Now.AddMinutes(UnityEngine.Random.Range(6, 15));
+        Debug.Log("Reshuffle Time now set to " + reshuffleTime);
+
+        reshuffleActive = false;
+
+        yield return null;
+    }
+
+
 
     public bool verifyAllTownsHaveStates()
 	{

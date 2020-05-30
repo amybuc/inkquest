@@ -46,6 +46,7 @@ public class Dialogue : MonoBehaviour
 
     public void Speak(GameObject NPC)
     {
+        player.isBusy = true;
         mainCanvas.SetActive(false);
         npcStore = NPC;
         cam.GetComponent<GameCamera>().isDialogue = true;
@@ -120,6 +121,7 @@ public class Dialogue : MonoBehaviour
             else
             {
                 //Dialogue is finished! Let's check if any inventory interaction is taking place
+                player.isBusy = false;
 
                 if (isQuest == true)
                 {
